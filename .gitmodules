@@ -1,12 +1,12 @@
 [submodule "ticket721-webapp"]
 	path = ticket721-webapp
-	url = https://github.com/Horyus/ticket721-webapp
+	url = git@github.com:Horyus/ticket721-webapp
 [submodule "ticket721-cacheserver"]
 	path = ticket721-cacheserver
-	url = https://github.com/Horyus/ticket721-cacheserver
+	url = git@github.com:Horyus/ticket721-cacheserver
 [submodule "ticket721-csapi"]
 	path = ticket721-csapi
-	url = https://github.com/Horyus/ticket721-csapi
+	url = git@github.com:Horyus/ticket721-csapi
 [submodule "ticket721-contracts"]
 	path = ticket721-contracts
-	url = https://github.com/Horyus/ticket721-contracts
+	url = git@github.com:Horyus/ticket721-contracts
