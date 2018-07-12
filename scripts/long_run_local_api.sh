@@ -7,4 +7,4 @@ npm run simulation:deploy
 npm run simulation:populate_one
 npm run simulation:populate_two
 npm run simulation:import_config
-npm run simulation:run_dev_api
+npm run simulation:run_api

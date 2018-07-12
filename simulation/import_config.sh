@@ -5,5 +5,5 @@ cp -r ./ticket721-contracts/dist ./ticket721-webapp/
 cp -r ./ticket721-contracts/.embark ./ticket721-webapp/.embark
 
 #TMP
-cp ./simulation/manifest.json ./ticket721-webapp/
+cp ./simulation/manifest.js ./ticket721-webapp/
 

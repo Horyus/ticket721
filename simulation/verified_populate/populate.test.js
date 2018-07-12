@@ -147,7 +147,7 @@ describe("Register Accounts as verified users", () => {
 
 
     it("Save manifest", async (done) => {
-        Fs.writeFileSync("./manifest.json", JSON.stringify(manifest));
+        Fs.writeFileSync("./manifest.js", "module.exports = \n" + JSON.stringify(manifest));
         done();
     });
 
