@@ -89,11 +89,12 @@ describe("Register Accounts as verified users", () => {
                 const ipfs_image = res[0].hash;
                 console.log(":: " + ipfs_image);
                 const deploy = new Buffer(JSON.stringify({
-                    ...config,
-                    image: ipfs_image,
+                    name: config.name,
+                    description: config.description,
+                    image: "https://ipfs.infura.io/ipfs/" + ipfs_image
                 }, null, 4));
                 ipfs.files.add(deploy).then(_res => {
-                    const infos = _res[0].hash;
+                    const infos = "https://ipfs.infura.io/ipfs/" + _res[0].hash;
                     console.log(":: " + infos);
 
                     const Ticket721EventWeb3 = new Web3.eth.Contract(Ticket721Event.abiDefinition);
@@ -113,7 +114,7 @@ describe("Register Accounts as verified users", () => {
                                 config.cap,
                                 config.price,
                                 infos,
-                                config.title,
+                                config.name,
                                 Math.floor(sale_end.getTime() / 1000),
                                 Math.floor(event_begin.getTime() / 1000),
                                 Math.floor(event_end.getTime() / 1000)
