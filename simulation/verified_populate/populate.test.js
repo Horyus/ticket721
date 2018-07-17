@@ -81,7 +81,7 @@ describe("Register Accounts as verified users", () => {
         }
     });
 
-    const runSale = (id, account, idx, status, done) => {
+    const runSale = (id, account, idx, done) => {
         try {
             const config = require("./" + id + "/infos.json");
             const image = Fs.readFileSync("./verified_populate/" + id + "/" + config.image);
@@ -91,7 +91,9 @@ describe("Register Accounts as verified users", () => {
                 const deploy = new Buffer(JSON.stringify({
                     name: config.name,
                     description: config.description,
-                    image: "https://ipfs.infura.io/ipfs/" + ipfs_image
+                    image: "https://ipfs.infura.io/ipfs/" + ipfs_image,
+                    longitude: config.longitude,
+                    latitude: config.latitude
                 }, null, 4));
                 ipfs.files.add(deploy).then(_res => {
                     const infos = "https://ipfs.infura.io/ipfs/" + _res[0].hash;
@@ -128,7 +130,6 @@ describe("Register Accounts as verified users", () => {
                         .then(instance => {
                             Ticket721HUB.methods.registerController(instance.options.address).send({from: accounts[account], gas: 1000000}).then(_ => {
                                 instance.methods.register().send({from: accounts[account], gas: 1000000}).then(_ => {
-                                    manifest.push({address: instance.options.address, status: status});
                                     done();
                                 }).catch(done);
                             });
@@ -141,15 +142,9 @@ describe("Register Accounts as verified users", () => {
         }
     };
 
-    it("Should run an Event as #2", runSale.bind(null, "T721UTR2018", 1, 0, 'new'), 500000);
-    it("Should run an Event as #2", runSale.bind(null, "T721ETR2018", 1, 1, 'hot'), 500000);
-    it("Should run an Event as #2", runSale.bind(null, "T721ETR2019", 1, 2, 'hot'), 500000);
-    it("Should run an Event as #2", runSale.bind(null, "T721UTT", 1, 3, 'soon'), 500000);
-
-
-    it("Save manifest", async (done) => {
-        Fs.writeFileSync("./manifest.js", "module.exports = \n" + JSON.stringify(manifest));
-        done();
-    });
+    it("Should run an Event as #2", runSale.bind(null, "T721UTR2018", 1, 0), 500000);
+    it("Should run an Event as #2", runSale.bind(null, "T721ETR2018", 1, 1), 500000);
+    it("Should run an Event as #2", runSale.bind(null, "T721ETR2019", 1, 2), 500000);
+    it("Should run an Event as #2", runSale.bind(null, "T721UTT", 1, 3), 500000);
 
 });
