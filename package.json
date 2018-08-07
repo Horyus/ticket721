@@ -12,6 +12,7 @@
     "simulation:stop": "./simulation/stop.sh",
     "simulation:run_api": "./simulation/run_api.sh",
     "simulation:run_webapp": "./simulation/run_webapp.sh",
+    "simulation:run_prod_webapp": "./simulation/run_prod_webapp.sh",
     "simulation:run_api_tests": "cd ticket721-cacheserver && env API_CLIENT_SOURCE=`pwd`/../ticket721-csapi npm run test",
     "scripts:run_local_webapp": "./scripts/run_local_webapp.sh",
     "scripts:long_run_local_webapp": "./scripts/long_run_local_webapp.sh",
