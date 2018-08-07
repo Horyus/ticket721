@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "simulation:start": "./simulation/start.sh",
+    "simulation:start_slow": "./simulation/start_slow.sh",
     "simulation:deploy": "./simulation/deploy.sh",
     "simulation:populate_one": "./simulation/populate_one.sh",
     "simulation:populate_two": "./simulation/populate_two.sh",
     "simulation:import_config": "./simulation/import_config.sh",
     "simulation:stop": "./simulation/stop.sh",
+    "simulation:stop_slow": "./simulation/stop_slow.sh",
     "simulation:run_api": "./simulation/run_api.sh",
     "simulation:run_webapp": "./simulation/run_webapp.sh",
     "simulation:run_prod_webapp": "./simulation/run_prod_webapp.sh",

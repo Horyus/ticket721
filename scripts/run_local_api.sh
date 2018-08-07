@@ -1,7 +1,7 @@
 #! /bin/sh
 
-npm run simulation:stop
-npm run simulation:start
+npm run simulation:stop_slow
+npm run simulation:start_slow
 sleep 15
 npm run simulation:deploy
 npm run simulation:populate_two
