@@ -12,10 +12,10 @@
 	url = git@github.com:Horyus/ticket721-contracts
 [submodule "ticket721-companion"]
 	path = ticket721-companion
-	url = git@github.com:/Horyus/ticket721-companion
+	url = git@github.com:Horyus/ticket721-companion
 [submodule "ticket721-event-manager-server"]
 	path = ticket721-event-manager-server
-	url = git@github.com:/Horyus/ticket721-event-manager-server
+	url = git@github.com:Horyus/ticket721-event-manager-server
 [submodule "ticket721-event-scanner"]
 	path = ticket721-event-scanner
-	url = git@github.com:/Horyus/ticket721-event-scanner
+	url = git@github.com:Horyus/ticket721-event-scanner

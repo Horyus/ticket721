@@ -1,9 +1,9 @@
 {
   "image": "./image.jpeg",
-  "name": "UtraTekno",
-  "description": "TEKNO",
+  "name": "Solidays 2019",
+  "description": "Les Solidays sont de retour en 2019 a l'Hippodrome de Longchamp",
   "price": "18300000000000000",
-  "latitude": "48.9244627",
-  "longitude": "2.3579758",
+  "latitude": "48.8576958",
+  "longitude": "2.233709299999987",
   "cap": 2000
 }

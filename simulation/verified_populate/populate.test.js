@@ -46,18 +46,24 @@ let manifest = [];
 describe("Register Accounts as verified users", () => {
 
     it("Loads Ticket721HUB", async (done) => {
-        Ticket721HUB = new Web3.eth.Contract(Ticket721HUBInfos.abiDefinition, Ticket721HUBInfos.deployedAddress);
-        Ticket721HUB.setProvider(Web3.currentProvider);
+        try {
+            Ticket721HUB = new Web3.eth.Contract(Ticket721HUBInfos.abiDefinition, Ticket721HUBInfos.deployedAddress);
+            Ticket721HUB.setProvider(Web3.currentProvider);
 
-        const AccountManagerAddress = await Ticket721HUB.methods.account_manager().call();
-        Ticket721VerifiedAccounts  = new Web3.eth.Contract(Ticket721VerifiedAccountsInfos.abiDefinition, AccountManagerAddress);
+            const AccountManagerAddress = await Ticket721HUB.methods.account_manager().call();
+            Ticket721VerifiedAccounts = new Web3.eth.Contract(Ticket721VerifiedAccountsInfos.abiDefinition, AccountManagerAddress);
 
-        accounts = await Web3.eth.getAccounts();
+            accounts = await Web3.eth.getAccounts();
 
-        Ticket721VerifiedAddress = await Ticket721HUB.methods.verified_ticket_registries(0).call({from: accounts[0]});
-        Ticket721Verified = new Web3.eth.Contract(Ticket721.abiDefinition, Ticket721VerifiedAddress);
+            Ticket721VerifiedAddress = await Ticket721HUB.methods.verified_ticket_registries(0).call({from: accounts[0]});
+            console.log('Ticket721VerifiedAddress', Ticket721VerifiedAddress);
+            Ticket721Verified = new Web3.eth.Contract(Ticket721.abiDefinition, Ticket721VerifiedAddress);
 
-        done();
+            done();
+        } catch (e) {
+            console.log(e);
+            done(e);
+        }
     }, 50000);
 
     it("Add account #2 as verified identity", async (done) => {
@@ -68,7 +74,7 @@ describe("Register Accounts as verified users", () => {
         } catch (e) {
             done(e);
         }
-    });
+    }, 60000);
 
     it("Add account #3 as verified identity", async (done) => {
 
@@ -79,7 +85,7 @@ describe("Register Accounts as verified users", () => {
         } catch (e) {
             done(e);
         }
-    });
+    }, 60000);
 
     const runSale = (id, account, idx, done) => {
         try {
@@ -124,12 +130,12 @@ describe("Register Accounts as verified users", () => {
                         })
                         .send({
                             from: accounts[account],
-                            gas: 5000000
+                            gas: 6000000
                         })
                         .on('error', console.error)
                         .then(instance => {
-                            Ticket721HUB.methods.registerController(instance.options.address).send({from: accounts[account], gas: 1000000}).then(_ => {
-                                instance.methods.register().send({from: accounts[account], gas: 1000000}).then(_ => {
+                            Ticket721HUB.methods.registerController(instance.options.address).send({from: accounts[account], gas: 2000000}).then(_ => {
+                                instance.methods.register().send({from: accounts[account], gas: 2000000}).then(_ => {
                                     done();
                                 }).catch(done);
                             });
