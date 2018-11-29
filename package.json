@@ -40,7 +40,9 @@
   "homepage": "https://github.com/Horyus/ticket721#readme",
   "dependencies": {
     "embark": "^3.1.5",
-    "jest": "^23.3.0"
+    "ipfs-api": "^26.1.2",
+    "jest": "^23.3.0",
+    "web3": "^1.0.0-beta.36"
   },
   "devDependencies": {
     "webpack-cli": "^3.0.8"
